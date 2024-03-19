@@ -1,0 +1,193 @@
+/* Google fonts import */
+
+@import url('https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap');
+
+ 
+ /* Asterix wildcard selector to override default styles added by the browser */
+{
+     padding: 0%;
+     /* this overrides the browser defaults */
+     margin: 0%;
+     /* this overrides the browser defaults */
+     box-sizing: border-box;
+     /* default is that the element's border and padding are added to the element's specified width/height. 
+    "box-sizing: border-box;" allows padding and border to be included in the width and height, 
+    i.e. when applying height and width to an element later, it will be applied to an entire elements including the border */
+    background-color: bisque
+}  */ 
+-----------------------------------------------*/
+
+ /* Navigation bar */
+ 
+/*
+li, a {
+     font-family: 'Rufina', sans-serif;
+     font-size: 10px;
+     text-transform: none;
+     text-decoration: none;
+     letter-spacing: none;
+     color: #302f2f;
+ }
+*/
+ header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    color: #302f2f;
+    background-color: #f8f8f8;
+    padding: 5px 3%; /* 5px at the top and bottom, 3% left and right */
+ }
+
+ .logo {
+    cursor: pointer; 
+    font-family: Rufina;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+ }
+/*
+ .nav_links {
+    display: inline-block; /* to make links sit side by side */
+   /* padding: 0 5px; /* 0 at the top and bottom, 5px left and right */
+   /* list-style: none;
+    font-family: 'Rufina', sans-serif;
+    font-size: 10px;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    color: #302f2f;
+ }
+*/
+/*
+ .nav_links { /* target nav_links items + the a tags within them */
+    /*transition: all 0.3s ease 0s; /* 0s for no delay */
+/* }
+
+ .nav_links:hover { /* on mouse over */
+   /* color: #919090;
+ }
+*/
+ /* ------------------------------------------------------------------------*/
+
+.page-container{
+    min-height: 100vh;
+    /*display: flex;*/
+    /* flex: 1 1 auto; /*(grow: 1, shrink 1, basis auto)*/
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    text-align: center;
+    font-family: Rufina;
+    letter-spacing: 0.3px;
+ }
+
+/* ------------------------------------------------------------------------*/
+
+/* Home page - Section 1 */
+
+#home-pic-1 {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: 10% 100%;
+}
+
+.home-bgcolor-1 {
+    background-color: #f8f8f8;
+}
+
+#home-h3-1 {
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #302f2f;
+    background-color: #f8f8f8;
+}
+
+#home-article-1 {
+    color: #302f2f;
+    padding: 10px 50px;
+    font-size: 12px;
+    margin-top: 30px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 40px;
+}
+
+/* Home page - Section 2 */
+
+#home-pic-2 {
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.home-bgcolor-2 {
+    background-color:#e4e0ce;
+}
+
+#home-h3-2 {
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #302f2f;
+    background-color: #e4e0ce;
+}
+
+#home-article-2 {
+    color: #302f2f;
+    padding: 10px 50px;
+    font-size: 12px;
+    margin-top: 30px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 40px;
+}
+
+/* Footer */
+
+footer {
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    color:#302f2f;
+    width:100%;
+    text-align: center;
+    background-color: #f8f8f8;
+    margin: 0px;
+    padding: 0.5px; /* no matter what the unit number it
+    doesn't change the height of the footer?*/
+ }
+
+/* ------------------------------------------------------------------------*/
+
+
+/* Media query: mobile and larger (430px and up) */
+@media screen and (min-width: 430px) 
+   
+#home-pic-1 {
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 50px;
+}
+
+
+/* Media query: tablets and larger (768px and up) */
+@media screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops and desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+
+}
+
+/* Largest devices (laptops and desktops, 1200px and up) */
+
+@media screen and (min-width: 1200px) {
+    
+}
+
+
