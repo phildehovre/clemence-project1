@@ -17,9 +17,10 @@
 }  */ 
 -----------------------------------------------*/
 
- /* Navigation bar */
+ /* Navigation bar https://codepen.io/ngochuynh/pen/yKrvVZ */
  
  header {
+    z-index: 99;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,7 +44,7 @@
  .nav_links {
     display: inline-block; /* to make links sit side by side */
     padding: 0 5px; /* 0 at the top and bottom, 5px left and right */
-    list-style: none;
+    list-style-type: none;
     font-family: 'Rufina', sans-serif;
     font-size: 10px;
     text-transform: none;
@@ -60,6 +61,33 @@
  .nav_links:hover { /* on mouse over */
    /* color: #919090;
  }
+*/
+
+/* Navbar styles with dropdown toggle */
+nav {
+    position: absolute;
+    background-color: #ffffff;
+    width: 100%;
+    left: 0;
+    padding: 0 1rem;
+    box-shadow: 0 2px 2px #3a3a3a;
+    display: none;
+    top: 100%;
+}
+
+/*
+/* Nav toggle */
+/* #nav-toggle:checked~nav {
+    display: block;
+}
+
+#nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    font-size: 2rem;
+}
 */
  /* ------------------------------------------------------------------------*/
 
