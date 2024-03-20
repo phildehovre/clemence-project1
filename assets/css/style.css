@@ -1,207 +1,276 @@
 /* Google fonts import */
 
-@import url('https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap");
 
- 
- /* Asterix wildcard selector to override default styles added by the browser */
-{
-     padding: 0%;
-     /* this overrides the browser defaults */
-     margin: 0%;
-     /* this overrides the browser defaults */
-     box-sizing: border-box;
-     /* default is that the element's border and padding are added to the element's specified width/height. 
-    "box-sizing: border-box;" allows padding and border to be included in the width and height, 
-    i.e. when applying height and width to an element later, it will be applied to an entire elements including the border */
-    background-color: bisque
-}  */ 
------------------------------------------------*/
+/* Asterix wildcard selector to override default styles added by the browser */
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
 
- /* Navigation bar https://codepen.io/ngochuynh/pen/yKrvVZ */
- 
- header {
-    z-index: 99;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    color: #302f2f;
-    background-color: #f8f8f8;
-    padding: 5px 3%; /* 5px at the top and bottom, 3% left and right */
- }
+body {
+  font-family: "Rufina", serif;
+  background-color: #f8f8f8;
+  height: 100vh;
+  width: 100vw;
+}
 
- .logo {
-    cursor: pointer; 
-    font-family: Rufina;
-    font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
- }
+.toggler {
+  /* ALWAYS KEEPING THE TOGGLER OR THE CHECKBOX ON TOP OF EVERYTHING :  */
+  z-index: 2;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  opacity: 0;
+}
 
- /* re-instate formatting */
- .nav_links {
-    display: inline-block; /* to make links sit side by side */
-    padding: 0 5px; /* 0 at the top and bottom, 5px left and right */
-    list-style-type: none;
-    font-family: 'Rufina', sans-serif;
-    font-size: 10px;
-    text-transform: none;
-    text-decoration: none;
-    letter-spacing: 0.3px;
-    color: #302f2f;
- }
-
-/*
- .nav_links { /* target nav_links items + the a tags within them */
-    /*transition: all 0.3s ease 0s; /* 0s for no delay */
-/* }
-
- .nav_links:hover { /* on mouse over */
-   /* color: #919090;
- }
+.hamburger {
+/* ----------------------------------------------------------------------------
+  X disappears once clicked ??????  
+  Also need to add padding to image below 
+  Also checkbox disappears once you scroll further down 
+  -------------------------------------------------------------------------------
 */
+  position: absolute; 
+  top: 0;
+  left: 0;
+  height: 40px;
+  width: 40px;
+/*  padding: 0.6rem; */
 
-/* Navbar styles with dropdown toggle */
-nav {
-    position: absolute;
-    background-color: #ffffff;
-    width: 100%;
-    left: 0;
-    padding: 0 1rem;
-    box-shadow: 0 2px 2px #3a3a3a;
-    display: none;
-    top: 100%;
+  /* FOR DISPLAYING EVERY ELEMENT IN THE CENTER : */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/*
-/* Nav toggle */
-/* #nav-toggle:checked~nav {
-    display: block;
+/* CREATING THE MIDDLE LINE OF THE HAMBURGER : */
+
+.hamburger > div {
+  position: relative;
+  top: 0;
+  left: 0;
+  background: rgb(0, 0, 0);
+  height: 2px;
+  width: 60%;
+  transition: all 0.4s ease;
 }
 
-#nav-toggle {
-    display: none;
+/* CREATING THE TOP AND BOTTOM LINES : 
+TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
+
+.hamburger > div::before,
+.hamburger > div::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  background: rgb(0, 0, 0);
+  width: 100%;
+  height: 2px;
+  transition: all 0.4s ease;
 }
 
-.nav-toggle-label {
-    font-size: 2rem;
+.hamburger > div::after {
+  top: 8px;
 }
-*/
- /* ------------------------------------------------------------------------*/
 
-.page-container{
-    min-height: 100vh;
-    display: flex;
-    /* flex: 1 1 auto; /*(grow: 1, shrink 1, basis auto)*/
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    text-align: center;
-    font-family: Rufina;
-    letter-spacing: 0.3px;
-    color: #302f2f;
- }
+/* IF THE TOGGLER IS IN ITS CHECKED STATE, THEN SETTING THE BACKGROUND OF THE MIDDLE LAYER TO COMPLETE BLACK AND OPAQUE :  */
 
-/* ------------------------------------------------------------------------*/
+.toggler:checked + .hamburger > div {
+  background: rgba(0, 0, 0, 0);
+}
+
+.toggler:checked + .hamburger > div::before {
+  top: 0;
+  transform: rotate(45deg);
+  background: black;
+}
+
+/* AND ROTATING THE TOP AND BOTTOM LINES :  */
+
+.toggler:checked + .hamburger > div::after {
+  top: 0;
+  transform: rotate(135deg);
+  background: black;
+}
+
+/* MAIN MENU WITH THE WHITE BACKGROUND AND THE TEXT :  */
+
+.menu {
+  z-index: 1;
+  position: absolute;
+  background: #f8f8f8;
+  opacity: 100%;
+  height: 100vh;
+
+  /* APPLYING TRANSITION TO THE MENU :  */
+
+  transition: all 0.4s ease;
+}
+
+/* IF THE TOGGLER IS CHECKED, THEN INCREASE THE WIDTH OF THE MENU TO 50% , CREATING A SMOOTH EFFECT :  */
+
+.toggler:checked ~ .menu {
+  width: 73%;
+}
+
+/* STYLING THE LIST :  */
+
+.menu > div > ul {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50px;
+  padding-left: 20px;
+
+  /* HIDDEN INITIALLY  :  */
+
+  visibility: hidden;
+}
+
+.menu > div > ul > li {
+  list-style: none;
+  padding: 0.5rem;
+}
+
+.menu > div > ul > li > a {
+  color: black;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: "Rufina", sans-serif;
+}
+
+/* WHEN THE TOGGLER IS CHECKED, CHANGE THE VISIBILITY TO VISIBLE :  */
+
+.toggler:checked ~ .menu > div > ul {
+  transition: visibility 0.4s ease;
+  transition-delay: 0.1s;
+  visibility: visible;
+}
+
+.toggler:checked ~ .menu > div > ul > li > a:hover {
+  color: rgb(0, 0, 0);
+}
+
+/* Griefwell Logo */
+
+header {
+  display: block;
+  position: fixed;
+  justify-content: center;
+  text-align: right;
+  width: 100%;
+  height: 40px;
+  background-color: #f8f8f8;
+  padding: 10px 10px;
+  cursor: pointer;
+  font-family: "Rufina", sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
 /* Home page - Section 1 */
 
-#home-pic-1 {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    object-position: 10% 100%;
-}
+/* Image 1 */
 
 .home-bgcolor-1 {
-    background-color: #f8f8f8;
+  display: block;
+  background-color: #f8f8f8;
+}
+
+#home-pic-1 {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-repeat: no-repeat;
+  padding-top: 40px;
 }
 
 #home-h3-1 {
-    font-size: 18px;
-    text-transform: uppercase;
-    background-color: #f8f8f8;
+  padding-bottom: 30px;
+  font-size: 23px;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
 }
 
 #home-article-1 {
-    color: #302f2f;
-    padding: 10px 50px;
-    font-size: 12px;
-    margin-top: 30px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-bottom: 40px;
+  padding: 60px 80px;
+  font-size: 15px;
+  justify-content: center;
+  text-align: center;
 }
 
-/* Home page - Section 2 */
+/*  Home page - Section 2 */
+
+/* Image 2 */
 
 #home-pic-2 {
-    display: block;
-    background-position: center;
-    background-repeat: no-repeat;
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-repeat: no-repeat;
 }
 
 .home-bgcolor-2 {
-    background-color:#e4e0ce;
+  display: block;
+  background-color: #e4e0ce;
 }
 
 #home-h3-2 {
-    font-size: 18px;
-    text-transform: uppercase;
-    background-color: #e4e0ce;
+  padding-bottom: 30px;
+  font-size: 23px;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
 }
 
 #home-article-2 {
-    padding: 10px 50px;
-    font-size: 12px;
-    margin-top: 30px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-bottom: 40px;
+  padding: 60px 80px;
+  font-size: 15px;
+  justify-content: center;
+  text-align: center;
 }
+
 
 /* Footer */
 
 footer {
-    font-size: 12px;
-    letter-spacing: 0.3px;
-    width:100%;
-    text-align: center;
-    background-color: #f8f8f8;
-    margin: 0px;
-    padding: 0.5px; /* no matter what the unit number it
-    doesn't change the height of the footer?*/
- }
+  font-size: 18px;
+  letter-spacing: 0.3px;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background-color: #b9b5a4;
+  color: #e5ff00;
+  margin: 0px;
+  padding: 20px;
+}
 
 /* ------------------------------------------------------------------------*/
 
-
-/* Media query: mobile and larger (430px and up) */
-@media screen and (min-width: 430px) 
-   
-#home-pic-1 {
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-top: 50px;
+/* Media query: mobile and larger (425px and up) */
+@media screen and (min-width: 425px) {
 }
-
 
 /* Media query: tablets and larger (768px and up) */
 @media screen and (min-width: 768px) {
-
 }
 
 /* Large devices (laptops and desktops, 992px and up) */
 @media screen and (min-width: 992px) {
-
 }
 
 /* Largest devices (laptops and desktops, 1200px and up) */
 
 @media screen and (min-width: 1200px) {
-    
 }
-
-

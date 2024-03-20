@@ -2,9 +2,111 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap');
 
- 
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+:root {
+    --bar-width: 20px;
+    --bar-height: 2px;
+    --hamburger-gap: 6px;
+    --foreground: #000000;
+    --background: white;
+    --hamburger-margin: 15px;
+    --animation-timing: 200ms ease-in-out;
+    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+}
+
+.hamburger-menu {
+    --x-width: calc(var(--hamburger-height) * 1.41421356237);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--hamburger-gap);
+    width: max-content;
+    position: absolute;
+    top: var(--hamburger-margin);
+    left: var(--hamburger-margin);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.hamburger-menu:has(input:checked) {
+    --foreground: white;
+    --background: #333;
+}
+
+.hamburger-menu:has(input:focus-visible)::before,
+.hamburger-menu:has(input:focus-visible)::after,
+.hamburger-menu input:focus-visible {
+    border: 1px solid var(--background);
+    box-shadow: 0 0 0 1px var(--foreground);
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input {
+    content: "";
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: var(--foreground);
+    border-radius: 9999px;
+    transform-origin: left center;
+    transition: opacity var(--animation-timing), width var(--animation-timing),
+        rotate var(--animation-timing), translate var(--animation-timing),
+        background-color var(--animation-timing);
+}
+
+.hamburger-menu input {
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    pointer-events: none;
+}
+
+.hamburger-menu:has(input:checked)::before {
+    rotate: 45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / -2);
+}
+
+.hamburger-menu:has(input:checked)::after {
+    rotate: -45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / 2);
+}
+
+.hamburger-menu input:checked {
+    opacity: 0;
+    width: 0;
+}
+
+.sidebar {
+    position: absolute;
+    transition: translate var(--animation-timing);
+    translate: -100%;
+    padding: 0.5rem 1rem;
+    padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
+    background-color: var(--foreground);
+    color: var(--background);
+    max-width: 10rem;
+    min-height: 100vh;
+}
+
+.hamburger-menu:has(input:checked)+.sidebar {
+    translate: 0;
+}
+
+ /*
  /* Asterix wildcard selector to override default styles added by the browser */
-{
+/*{
      padding: 0%;
      /* this overrides the browser defaults */
      margin: 0%;
@@ -38,7 +140,7 @@
  /* ------------------------------------------------------------------------*/
 
  /* Navigation bar */
-
+/*
 li, a, button {
      font-family: 'Rufina', sans-serif;
      font-size: 12px;
@@ -57,7 +159,8 @@ li, a, button {
     width: 100%;
     padding: 18px 5%; /* 18px at the top and bottom, 5% left and right */
  }
-
+*/
+/*
  .logo {
     cursor:pointer; 
     color: #545454;
@@ -74,15 +177,73 @@ li, a, button {
     display: inline-block; /* to make links sit side by side */
     padding: 0 10px; /* 0 at the top and bottom, 10px left and right */
  }
-
+*/
+/*
  .nav_links li a { /* target nav_links items + the a tags within them */
     transition: all 0.3s ease 0s; /* 0s for no delay */
  }
-
+*/
  .nav_links li a:hover { /* on mouse over */
-    color: #595959;
+ /*   color: #595959;
  }
 
+  header {
+      z-index: 99;
+      background-color: #f8f8f8;
+      color: #302f2f;
+      display: flex;
+      justify-conent: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 5px 3%;
+      /* 5px at the top and bottom, 3% left and right */
+  }
+  */
+/*
+  .menu {
+
+      list-style-type: none;
+      font-family: 'Rufina', sans-serif;
+      font-size: 10px;
+
+  }
+
+  .menu-links {
+      display: inline-block;
+      list-style-type: none;
+      text-transform: none;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+  }
+
+  .logo {
+      cursor: pointer;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+  }
+*/
+  /* re-instate formatting */
+  /*.nav_links {
+    display: inline-block; /* to make links sit side by side */
+  /* padding: 0 5px; /* 0 at the top/bottom, 5px left/right */
+  /* list-style-type: none;
+    font-family: 'Rufina', sans-serif;
+    font-size: 10px;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    color: #302f2f;
+    
+ }
+*/
+
+ /*
+         padding: 0 5px;
+         /* 0 at the top/bottom, 5px left/right */
+         */
  /* ------------------------------------------------------------------------*/
 
 .page-container{
