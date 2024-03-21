@@ -1,6 +1,6 @@
 /* Google fonts import */
 
-@import url("https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap')
 
 /* Asterix wildcard selector to override default styles added by the browser */
 * {
@@ -10,7 +10,9 @@
 }
 
 body {
-  font-family: "Rufina", serif;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-style: normal;
   background-color: #f8f8f8;
   height: 100vh;
   width: 100vw;
@@ -19,11 +21,11 @@ body {
 .toggler {
   /* ALWAYS KEEPING THE TOGGLER OR THE CHECKBOX ON TOP OF EVERYTHING :  */
   z-index: 2;
-  height: 50px;
-  width: 50px;
   position: absolute;
   top: 0;
   left: 0;
+  height: 50px;
+  width: 50px;
   cursor: pointer;
   opacity: 0;
 }
@@ -40,7 +42,7 @@ body {
   left: 0;
   height: 40px;
   width: 40px;
-/*  padding: 0.6rem; */
+padding: 0.6rem;
 
   /* FOR DISPLAYING EVERY ELEMENT IN THE CENTER : */
 
@@ -142,7 +144,9 @@ TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
   color: black;
   text-decoration: none;
   font-size: 1rem;
-  font-family: "Rufina", sans-serif;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 /* WHEN THE TOGGLER IS CHECKED, CHANGE THE VISIBILITY TO VISIBLE :  */
@@ -160,8 +164,9 @@ TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
 /* Griefwell Logo */
 
 header {
-  display: block;
-  position: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
   justify-content: center;
   text-align: right;
   width: 100%;
@@ -169,7 +174,9 @@ header {
   background-color: #f8f8f8;
   padding: 10px 10px;
   cursor: pointer;
-  font-family: "Rufina", sans-serif;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-style: normal;
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
