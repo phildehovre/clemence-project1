@@ -32,8 +32,7 @@ body {
 
 .hamburger {
 /* ----------------------------------------------------------------------------
-  X disappears once clicked ??????  
-  Also need to add padding to image below 
+  Toggler X disappears once clicked ??????  
   Also checkbox disappears once you scroll further down 
   -------------------------------------------------------------------------------
 */
@@ -44,7 +43,7 @@ body {
   width: 40px;
 padding: 0.6rem;
 
-  /* FOR DISPLAYING EVERY ELEMENT IN THE CENTER : */
+/* FOR DISPLAYING EVERY ELEMENT IN THE CENTER : */
 
   display: flex;
   align-items: center;
@@ -110,7 +109,7 @@ TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
   opacity: 100%;
   height: 100vh;
 
-  /* APPLYING TRANSITION TO THE MENU :  */
+/* APPLYING TRANSITION TO THE MENU :  */
 
   transition: all 0.4s ease;
 }
@@ -130,7 +129,7 @@ TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
   top: 50px;
   padding-left: 20px;
 
-  /* HIDDEN INITIALLY  :  */
+/* HIDDEN INITIALLY  :  */
 
   visibility: hidden;
 }
